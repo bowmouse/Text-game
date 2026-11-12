@@ -1,4 +1,6 @@
 #include<iostream>
+#include <cstdlib>
+#include <ctime>
 using namespace std;
 
 class Character {
@@ -33,13 +35,16 @@ void showStatus(Character ch)
 
 int main(void) {
 	
+	srand(time(0));
 	showStatus(Character("Denia (Ghost)", 100, 10, 5, 100));
 	cout << endl<<endl;
 	showStatus(Character("Sigrika (Kamen Rider)", 100, 10, 5, 100));
 	int select;
+	Character enemy("Unknown", 0, 0, 0, 0);
 	cout << "Select your character (0 for Denia (Ghost), 1 for Sigrika(Kamen Rider)) : ";
 	Character selected("Unknown", 0, 0, 0, 0);
 	cin >> select;
+	int enemySelect = rand() % 2;
 	switch (select)
 	{
 	case 0:
@@ -53,6 +58,18 @@ int main(void) {
 	default:
 		cout << "Are you trying to turn me into Skynet, human?" << endl;
 		break;
+	}
+	switch (enemySelect)
+	{
+	case 0:
+		cout << "Enemy selected: Denia (Ghost)" << endl << endl;
+		enemy = Character("Denia (Ghost)", 100, 10, 5, 100);
+		break;
+	case 1:
+		cout << "Enemy selected: Sigrika (Kamen Rider)" << endl << endl;
+		enemy = Character("Sigrika (Kamen Rider)", 100, 10, 5, 100);
+		break;
+	
 	}
 	
 	return 0;
