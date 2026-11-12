@@ -1,6 +1,7 @@
 #include<iostream>
 #include <cstdlib>
 #include <ctime>
+#include<string>
 using namespace std;
 
 class Character {
@@ -22,6 +23,18 @@ public:
 	}
 	
 };
+class Skill {
+public:
+	string skillName;
+	int skillCoefficient;
+	int skillType;
+	Skill(string sN, int sC, int sT)
+	{
+		skillName = sN;
+		skillCoefficient = sC;
+		skillType = sT;
+	}
+};
 
 void showStatus(Character ch)
 {
@@ -41,6 +54,7 @@ int main(void) {
 	showStatus(Character("Sigrika (Kamen Rider)", 100, 10, 5, 100));
 	int select;
 	Character enemy("Unknown", 0, 0, 0, 0);
+	cout << endl;
 	cout << "Select your character (0 for Denia (Ghost), 1 for Sigrika(Kamen Rider)) : ";
 	Character selected("Unknown", 0, 0, 0, 0);
 	cin >> select;
